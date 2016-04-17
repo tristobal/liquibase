@@ -1,0 +1,28 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="tag6" author="tristobal">
+        <tagDatabase tag="1.0.0-5.1"/>
+    </changeSet>
+
+    <changeSet id="load-tipo_cliente_postulacion" author="tristobal">
+
+        <loadData encoding="UTF-8"
+                  file="src/main/resources/csv/1.0.0/tipo_cliente_postulacion.csv"
+                  separator=";"
+                  quotchar='"'
+                  schemaName="prueba"
+                  tableName="tipo_cliente_postulacion">
+
+            <column name="id_tipo_cliente" type="NUMERIC"/>
+            <column name="tipo_cliente" type="STRING"/>
+        </loadData>
+        <rollback>
+            DELETE FROM prueba.tipo_cliente_postulacion WHERE id_tipo_cliente IN (13,43,33,23,113,73,63,53,103,93,3,83);
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

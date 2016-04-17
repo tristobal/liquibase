@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="tag5" author="tristobal">
+        <tagDatabase tag="1.0.0-4.1"/>
+    </changeSet>
+
+    <changeSet id="load-mapeo_nivel_patner" author="tristobal">
+
+        <loadData encoding="UTF-8"
+                  file="src/main/resources/csv/1.0.0/mapeo_nivel_patner.csv"
+                  separator=";"
+                  quotchar='"'
+                  schemaName="prueba"
+                  tableName="mapeo_nivel_patner">
+                  
+            <column name="id_mapeo_nivel_patner" type="NUMERIC"/>
+            <column name="nivel_patner_postulacion" type="STRING"/>
+            <column name="nivel_patner_alianza" type="STRING"/>
+        </loadData>
+        <rollback>
+            DELETE FROM prueba.mapeo_nivel_patner WHERE id_mapeo_nivel_patner IN (3, 13, 23, 33, 43, 53);
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

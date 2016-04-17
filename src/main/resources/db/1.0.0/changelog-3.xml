@@ -1,0 +1,31 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="tag3" author="tristobal">
+        <tagDatabase tag="1.0.0-3.1"/>
+    </changeSet>
+
+    <changeSet id="create-codigo_prioridad_postulacion" author="tristobal">
+        <sql>
+            CREATE TABLE prueba.codigo_prioridad_postulacion (
+                id_codigo_prioridad int(10) NOT NULL AUTO_INCREMENT,
+                id_mapeo_nivel_patner int(10) NOT NULL,
+                id_tipo_cliente int(10) NOT NULL,
+                codigo_prioridad varchar(10) NOT NULL,
+                PRIMARY KEY (id_codigo_prioridad),
+                UNIQUE KEY codigo_prioridad_postulacion (id_mapeo_nivel_patner,id_tipo_cliente),
+                KEY FKcodigo_pri1 (id_tipo_cliente),
+                KEY FKcodigo_pri2 (id_mapeo_nivel_patner),
+                CONSTRAINT FKcodigo_pri3 FOREIGN KEY (id_mapeo_nivel_patner) REFERENCES mapeo_nivel_patner (id_mapeo_nivel_patner),
+                CONSTRAINT FKcodigo_pri4 FOREIGN KEY (id_tipo_cliente) REFERENCES tipo_cliente_postulacion (id_tipo_cliente)
+            ) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=latin1;
+        </sql>
+        <rollback>
+            DROP TABLE IF EXISTS prueba.codigo_prioridad_postulacion;
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

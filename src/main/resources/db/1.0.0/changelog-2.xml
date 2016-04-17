@@ -1,0 +1,25 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="tag2" author="tristobal">
+        <tagDatabase tag="1.0.0-2.1"/>
+    </changeSet>
+
+    <changeSet id="create-tipo_cliente_postulacion" author="tristobal">
+        <sql>
+            CREATE TABLE prueba.tipo_cliente_postulacion (
+                id_tipo_cliente int(10) NOT NULL AUTO_INCREMENT,
+                tipo_cliente varchar(30) NOT NULL,
+                PRIMARY KEY (id_tipo_cliente),
+                UNIQUE KEY tipo_cliente (tipo_cliente)
+            ) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=latin1;
+        </sql>
+        <rollback>
+            DROP TABLE IF EXISTS prueba.tipo_cliente_postulacion;
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

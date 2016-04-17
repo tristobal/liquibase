@@ -1,0 +1,23 @@
+# Eclipse
+.classpath
+.project
+.springBeans
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Sonar local
+.sonar/
+
+#Temporales Linux
+*~
