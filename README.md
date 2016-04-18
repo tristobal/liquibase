@@ -36,5 +36,6 @@ Creará los scripts de rollback de la base de datos. Hasta (inclusive) el change
 ### NOTA
 
 Para una base de datos ya existente, primero se debe realizar lo siguiente:
+
 1. Generar los script que emulen el estado actual de la base de datos.
 2. Ejecutar mvn liquibase:changelogSync. Esto creará las tablas DATABASECHANGELOG y DATABASECHANGELOGLOCK con el estado actual.
